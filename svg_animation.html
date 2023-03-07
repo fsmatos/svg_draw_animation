@@ -1069,23 +1069,23 @@
     },
   });
 
-  const marcomTitleTimeline = gsap.timeline({
-    paused: true,
-    scrollTrigger: {
-      trigger: ".marcom-360-title",
-      start: "top 40%",
-    },
-  });
+  // const marcomTitleTimeline = gsap.timeline({
+  //   paused: true,
+  //   scrollTrigger: {
+  //     trigger: ".marcom-360-title",
+  //     start: "top 40%",
+  //   },
+  // });
 
-  marcomTitleTimeline.from([".comunicacao-marketing", ".okris"], {
-    opacity: 0,
-    x: -10,
-    duration: 1,
-    delay: 1,
-    ease: "Power3.easeOut",
-    transformOrigin: "center",
-    stagger: 0.1,
-  });
+  // marcomTitleTimeline.from([".comunicacao-marketing", ".okris"], {
+  //   opacity: 0,
+  //   x: -10,
+  //   duration: 1,
+  //   delay: 1,
+  //   ease: "Power3.easeOut",
+  //   transformOrigin: "center",
+  //   stagger: 0.1,
+  // });
 
   const circleTimeline = gsap.timeline({
     paused: true,
@@ -1095,12 +1095,26 @@
     },
   });
 
-  circleTimeline.from(".inner-circle", {
-    scale: 0,
+  circleTimeline.from([".comunicacao-marketing", ".okris"], {
+    opacity: 0,
+    x: -10,
     duration: 1,
+    delay: 1,
     ease: "Power3.easeOut",
     transformOrigin: "center",
+    stagger: 0.1,
   });
+
+  circleTimeline.from(
+    ".inner-circle",
+    {
+      scale: 0,
+      duration: 1,
+      ease: "Power3.easeOut",
+      transformOrigin: "center",
+    },
+    0
+  );
 
   circleTimeline.from(
     ".inner-circle-text",
