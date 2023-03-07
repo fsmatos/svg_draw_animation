@@ -967,7 +967,7 @@
       stagger: 0.1,
       transformOrigin: "center",
     },
-    0
+    "<+=0.5"
   );
 
   group_5.from(
@@ -976,18 +976,17 @@
       opacity: 0,
       scale: 0,
       duration: 1,
-      delay: 1,
       transformOrigin: "top center",
       ease: "Power3.easeOut",
     },
-    0
+    "<+=0.5"
   );
 
   var lineDrawing = anime({
     targets: ".path",
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: "easeInOutCubic",
-    duration: 1000,
+    duration: 4000,
     autoplay: false,
     update: function (anim) {
       if (anim.progress > progress) {
@@ -1034,7 +1033,12 @@
       if (scrollProgress < (scrollPercent() / 100) * lineDrawing.duration) {
         scrollProgress = (scrollPercent() / 100) * lineDrawing.duration;
       }
-      lineDrawing.seek(scrollProgress);
+      if (Math.round(progress) < 70) {
+        lineDrawing.seek(scrollProgress);
+      } else {
+        lineDrawing.play();
+      }
+      // lineDrawing.seek(scrollProgress);
     } else {
       lineDrawing.pause();
     }
@@ -1073,33 +1077,15 @@
     },
   });
 
-  // const marcomTitleTimeline = gsap.timeline({
-  //   paused: true,
-  //   scrollTrigger: {
-  //     trigger: ".marcom-360-title",
-  //     start: "top 40%",
-  //   },
-  // });
-
-  // marcomTitleTimeline.from([".comunicacao-marketing", ".okris"], {
-  //   opacity: 0,
-  //   x: -10,
-  //   duration: 1,
-  //   delay: 1,
-  //   ease: "Power3.easeOut",
-  //   transformOrigin: "center",
-  //   stagger: 0.1,
-  // });
-
-  const circleTimeline = gsap.timeline({
+  const marcomTitleTimeline = gsap.timeline({
     paused: true,
     scrollTrigger: {
-      trigger: ".comunicacao-marketing",
-      start: "top 10%",
+      trigger: ".marcom-360-title",
+      start: "top 60%",
     },
   });
 
-  circleTimeline.from([".comunicacao-marketing", ".okris"], {
+  marcomTitleTimeline.from([".comunicacao-marketing", ".okris"], {
     opacity: 0,
     x: -10,
     duration: 1,
@@ -1108,6 +1094,24 @@
     transformOrigin: "center",
     stagger: 0.1,
   });
+
+  const circleTimeline = gsap.timeline({
+    paused: true,
+    scrollTrigger: {
+      trigger: ".comunicacao-marketing",
+      start: "top 30%",
+    },
+  });
+
+  // circleTimeline.from([".comunicacao-marketing", ".okris"], {
+  //   opacity: 0,
+  //   x: -10,
+  //   duration: 1,
+  //   delay: 1,
+  //   ease: "Power3.easeOut",
+  //   transformOrigin: "center",
+  //   stagger: 0.1,
+  // });
 
   circleTimeline.from(
     ".inner-circle",
