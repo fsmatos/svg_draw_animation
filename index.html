@@ -1057,7 +1057,7 @@
       const docSH = document.documentElement.scrollHeight;
       const docCH = document.documentElement.clientHeight;
 
-      return ((docST + bodyST) / (docSH - docCH)) * 200;
+      return ((docST + bodyST) / (docSH - docCH)) * 150;
     };
 
     window.onscroll = () => {
@@ -1094,7 +1094,7 @@
       opacity: 0,
       y: 10,
       duration: 1,
-      delay: 1,
+      delay: 0.5,
       ease: "Power3.easeOut",
       transformOrigin: "center",
       scrollTrigger: {
