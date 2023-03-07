@@ -957,8 +957,8 @@
     0
   );
 
-  const group_6 = gsap.timeline({ paused: true });
-  group_6.from([".target-inside", ".target-outside"], {
+  // const group_6 = gsap.timeline({ paused: true });
+  group_5.from([".target-inside", ".target-outside"], {
     scale: 0,
     duration: 2,
     ease: "Elastic.easeOut",
@@ -966,7 +966,7 @@
     transformOrigin: "center",
   });
 
-  group_6.from(
+  group_5.from(
     ".dashed-path",
     {
       opacity: 0,
@@ -1008,10 +1008,6 @@
 
       if (Math.round(progress) >= 70) {
         group_5.play();
-      }
-
-      if (Math.round(progress) >= 88) {
-        group_6.play();
       }
 
       if (Math.round(progress) == 100) {
@@ -1068,8 +1064,8 @@
     transformOrigin: "center",
     scrollTrigger: {
       trigger: ".marcom-360-title",
-      start: "center center",
-      end: "bottom center",
+      start: "center 70%",
+      end: "center center",
     },
   });
 
