@@ -958,13 +958,17 @@
   );
 
   // const group_6 = gsap.timeline({ paused: true });
-  group_5.from([".target-inside", ".target-outside"], {
-    scale: 0,
-    duration: 2,
-    ease: "Elastic.easeOut",
-    stagger: 0.1,
-    transformOrigin: "center",
-  });
+  group_5.from(
+    [".target-inside", ".target-outside"],
+    {
+      scale: 0,
+      duration: 2,
+      ease: "Elastic.easeOut",
+      stagger: 0.1,
+      transformOrigin: "center",
+    },
+    0
+  );
 
   group_5.from(
     ".dashed-path",
